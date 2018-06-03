@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		.msgBox {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 200px;
+			border-radius: 10px;
+			background: #9680fa;
+		}
+
+		.msgBox p {
+			line-height: 1.5;
+			padding: 10px 20px;
+			color: #333;
+		}
+
+		.msgBox button {
+			background: none;
+			border: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 1.1rem;
+			color: #8f44aa;
+		}
+	</style>
+</head>
+<body>
+	<button>Display message box</button>
+
+
+
+	<script>
+		
+		function displayMessage() {
+			var html = document.querySelector('html')
+			
+			var panel = document.createElement('div')
+			panel.setAttributes('class', 'messageBox')
+			html.appendChild(panel)
+
+			var msg = document.createElement('p')
+			msg.textContent = 'this is a message box'
+			panel.appendChild(msg)
+
+			var closeButton = document.createElement('button')
+			closeButton.textContent = 'x'
+			panel.appendChild(closeButton)
+
+			closeButton.onclick = function() {
+				panel.parentNode.remoceChild(panel)
+			}
+
+		}
+
+		displayMessage()
+	</script>
+
+
+
+</body>
+</html>
